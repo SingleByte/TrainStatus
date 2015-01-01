@@ -1,0 +1,137 @@
+@import "bootstrap/bootstrap.less";
+
+@font-family: "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft Yahei", "微软雅黑", Tahoma, Arial, STHeiti, sans-serif;
+@timeline-width: 4px;
+@timeline-color: #ccc;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: @font-family;
+}
+
+/**
+ * 通用样式
+ */
+
+ .container { max-width: @screen-sm; }
+
+.bubble {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: @gray-lighter;
+  box-sizing: content-box;
+}
+
+.stat-ontime { background-color: @brand-success; }
+
+.stat-late   { background-color: @brand-danger; }
+
+
+
+/**
+ * 车次列表页面
+ */
+
+.trainstatus {
+
+  .page-header {
+    margin-top: 30px;
+    margin-bottom: 0;
+
+    .title {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    span {
+      font-size: @font-size-base;
+      border-radius: 25px;
+    }
+
+    .label { margin-left: 10px; }
+
+  }
+
+  .bubble-info {
+    text-align: right;
+    line-height: 30px;
+
+    .bubble { margin-left: 5px; }
+  }
+
+  .footer {
+    padding: 0 15px;
+
+    .btn {
+      margin-bottom: 5px;
+      width: 100%;
+    }
+  }
+
+}
+
+//
+// 列表样式
+//
+.trainlist {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 15px;
+
+  .timeline {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: @timeline-width;
+    height: 100%;
+    background-color: @timeline-color;
+  }
+
+  ul.list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .item {
+    position: relative;
+    padding: 10px 0 10px 30px;
+    border-left: @timeline-width solid transparent;
+
+    p {
+      margin-bottom: 0;
+      margin-left: 5px;
+    }
+
+    em {
+      font-style: normal;
+    }
+
+    .timepoint {
+      position: absolute;
+      top: 50%;
+      left: -9px;
+      margin-top: -5px;
+      border: 2px solid #fff;
+      background-color: @timeline-color;
+    }
+
+    .station {
+      em { font-size: @font-size-h5; }
+    }
+
+    &.finished {
+      border-left-color: @brand-success;
+
+      .timepoint {
+        background-color: @brand-success;
+      }
+    }
+  }
+
+}

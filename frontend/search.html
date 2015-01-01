@@ -2,9 +2,41 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
   <link type="text/css" rel="stylesheet" href="./css/trainstatus.css">
 </head>
 <body>
-  <section class="container search"></section>
+  <section class="search">
+
+    <div class="page-header">
+      <h2>春运神器</h2>
+      <p>简单牛逼的火车晚点查询工具</p>
+    </div>
+
+    <form class="container form">
+
+      <div class="form-group">
+        <input class="form-control" name="station" type="text" placeholder="车站名称">
+      </div>
+
+      <div class="form-group">
+        <input class="form-control" name="train" type="text" placeholder="车次">
+      </div>
+
+      <input class="btn btn-lg btn-block btn-success" type="submit" value="查 询">
+
+    </form>
+
+  </section>
+
+  <footer class="container site-footer">
+    <h4>使用说明</h4>
+    <ol>
+      <li>本查询提供未来3小时内列车正晚点信息；</li>
+      <li>所有查询条件必须完全准确，以确保能够查询到所需信息；</li>
+      <li>本功能及查询结果仅作为参考，准确信息以车站公告为准。</li>
+    </ol>
+  </footer>
+
 </body>
 </html>

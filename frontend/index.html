@@ -2,11 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scaleable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
   <link type="text/css" rel="stylesheet" href="./css/trainstatus.css">
+  <title>K917-时刻表</title>
 </head>
 <body>
-  <section class="container trainstatus">
+  <section class="container trainstatus" 
+    id="TrainList"
+    data-lastStation="长沙站"
+    data-destination="广州南"
+    data-trainId="K917">
 
     <header class="page-header">
       <h2 class="title">
@@ -22,7 +27,11 @@
 
     <section class="trainlist">
       <div class="timeline"></div>
-      <ul class="list">
+      <ul class="list" id="List">
+        <li class="item finished">
+          <span class="bubble timepoint"></span>
+          <a class="station" href="javascript:;" data-role="Station">石家庄站</a>
+        </li>
         <li class="item finished">
           <span class="bubble timepoint"></span>
           <h4 class="station">
@@ -49,17 +58,21 @@
             <em>预计到达：</em><strong>11:00</strong> 2015-2-18
           </p>
         </li>
+        <li class="item">
+          <span class="bubble timepoint"></span>
+          <a class="station" href="javascript:;" data-role="Station">石家庄站</a>
+        </li>
       </ul>
     </section>
 
     <footer class="footer">
-      <a class="btn btn-warning" href="#">加载全部</a>
+      <a class="btn btn-warning" id="LoadAllBtn" href="javascript:;">加载全部</a>
       <a class="btn btn-primary" href="search.html">查询其他车次</a>
     </footer>
 
   </section>
 
-  <footer class="container">
+  <footer class="container site-footer">
     <h4>使用说明</h4>
     <ol>
       <li>本查询提供未来3小时内列车正晚点信息；</li>
@@ -69,4 +82,6 @@
   </footer>
 
 </body>
+<script type="text/javascript" src="js/vendor/jQuery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/trainstatus.js"></script>
 </html>

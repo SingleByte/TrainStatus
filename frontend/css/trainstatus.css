@@ -6360,6 +6360,7 @@ body {
 .trainstatus .bubble-info {
   text-align: right;
   line-height: 30px;
+  font-size: 12px;
 }
 .trainstatus .bubble-info .bubble {
   margin-left: 5px;
@@ -6417,5 +6418,29 @@ body {
 }
 .trainlist .item.finished .timepoint {
   background-color: #5cb85c;
+}
+/**
+ * 查询页面
+ */
+.search .page-header {
+  margin-top: 0;
+  padding-top: 40px;
+  color: #fff;
+  text-align: center;
+  background-color: #d9534f;
+}
+.search .page-header p {
+  opacity: .8;
+}
+/**
+ * 页尾说明
+ */
+footer.site-footer {
+  margin-top: 30px;
+  border-top: 1px solid #eeeeee;
+  color: #777777;
+}
+footer.site-footer ol {
+  padding-left: 30px;
 }
 /*# sourceMappingURL=trainstatus.css.map */

@@ -77,16 +77,21 @@ class Train:
                 schedule_list.insert(0, station)
                 continue
             
-            low = 0
-            high = len(schedule_list) - 1
-            while low <= high:
+            low = -1 
+            high = len(schedule_list)
+            # 初始化： list[low] <= x && list[high] > x
+            while (low + 1) != high:
                 mid = (low + high) / 2
                 if station.distance < schedule_list[mid].distance:
-                    high = mid - 1
+                    # 保持：list[high] > x
+                    high = mid
                 else:
-                    low = mid + 1
+                    # 保持：list[low] <= x
+                    low = mid
 
-            schedule_list.insert(high + 1, station)
+            # 终止：(low + 1) == high && list[low] <= x && list[high] > x
+            # 则list[low + 1]即为插入位置
+            schedule_list.insert(low + 1, station)
 
         self.stations = schedule_list
         return schedule_list

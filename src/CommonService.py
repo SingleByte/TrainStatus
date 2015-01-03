@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 __author__ = 'lvkunyuan'
 
 import httplib
@@ -46,6 +49,7 @@ class CommonService():
             Log.d(TAG, e)
 
 
+    @staticmethod
     def TrimNiMa(result):
         if result.startswith('NIMA'):
             return result[result.find('NIMA')+5: -2]

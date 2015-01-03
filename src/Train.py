@@ -79,7 +79,7 @@ class Train:
             
             low = 0
             high = len(schedule_list) - 1
-            while low < high:
+            while low <= high:
                 mid = (low + high) / 2
                 if station.distance < schedule_list[mid].distance:
                     high = mid - 1

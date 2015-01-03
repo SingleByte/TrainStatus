@@ -17,7 +17,7 @@ class Station:
         self.distance = distance
 
     @staticmethod
-    def parse_Station(info):
+    def parseStation(info):
         """从信息数组中解析构造一个Station对象"""
         (IDX_NAME, IDX_DATE, IDX_ARRIVE, IDX_LEAVE, IDX_DIST) = range(5)
         station = Station(info[IDX_NAME], info[IDX_DATE], info[IDX_ARRIVE], \

@@ -1,6 +1,13 @@
 __author__ = 'lvkunyuan'
 
 import httplib
+from contextlib import closing
+from LogHelper import Log
+
+
+TAG = "CommonService"
+
+
 class CommonService():
 
     def Convert2utf8(content):
@@ -12,20 +19,31 @@ class CommonService():
         return retstr
 
 
+    @staticmethod
     def HttpGetRequest(host, url, decode='utf-8'):
+        """HTTP/HTTPS GET 方法"""
         try:
-            conn = httplib.HTTPConnection(host)
-            conn.request(method="GET", url=url)
-            response = conn.getresponse()
-            res = response.read()
-            res = res.decode(decode, 'ignore').encode('utf-8').strip()
-
-            if res.__contains__('\n'):
-                print 'error 500'
+            if host.startswith("https://"):
+                connect = httplib.HTTPSConnection
+                host = host[8:]
+            elif host.startswith("http://"):
+                connect = httplib.HTTPConnection
+                host = host[7:]
             else:
+                connect = httplib.HTTPConnection
+
+            with closing(connect(host)) as conn:
+                conn.request(method="GET", url=url)
+                response = conn.getresponse()
+                if response.status != httplib.OK:
+                    return None
+
+                res = response.read()
+                res = res.decode(decode, 'ignore').strip()
+
                 return res
-        except Exception,e:
-            print e
+        except Exception as e:
+            Log.d(TAG, e)
 
 
     def TrimNiMa(result):

@@ -6397,7 +6397,6 @@ body {
 }
 .trainlist .item p {
   margin-bottom: 0;
-  margin-left: 5px;
 }
 .trainlist .item em {
   font-style: normal;
@@ -6413,11 +6412,14 @@ body {
 .trainlist .item .station em {
   font-size: 14px;
 }
+.trainlist .item .time {
+  margin-left: 5px;
+}
 .trainlist .item.finished {
-  border-left-color: #5cb85c;
+  border-left-color: #5bc0de;
 }
 .trainlist .item.finished .timepoint {
-  background-color: #5cb85c;
+  background-color: #5bc0de;
 }
 /**
  * 查询页面

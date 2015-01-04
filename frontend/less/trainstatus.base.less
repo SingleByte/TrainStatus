@@ -14,7 +14,7 @@ html, body {
  * 通用样式
  */
 
- .container { max-width: @screen-sm; }
+.container { max-width: @screen-sm; }
 
 .bubble {
   display: inline-block;
@@ -106,7 +106,6 @@ html, body {
 
     p {
       margin-bottom: 0;
-      margin-left: 5px;
     }
 
     em {
@@ -126,11 +125,13 @@ html, body {
       em { font-size: @font-size-h5; }
     }
 
+    .time { margin-left: 5px; }
+
     &.finished {
-      border-left-color: @brand-success;
+      border-left-color: @brand-info;
 
       .timepoint {
-        background-color: @brand-success;
+        background-color: @brand-info;
       }
     }
   }

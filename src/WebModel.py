@@ -19,4 +19,6 @@ class WebModel():
     AVAILABLE_TRAIN_HOST = 'https://kyfw.12306.cn'
     AVAILABLE_TRAIN_URL = '/otn/lcxxcx/query?purpose_codes=ADULT&queryDate={0}&from_station={1}&to_station={2}'
 
+    DELAY_TIME_HOST = 'dynamic.12306.cn'
+    DELAY_TIME_URL = '/map_zwdcx/cx.jsp?cz={0}&cc={1}&cxlx=0&rq={2}&czEn={3}'
 

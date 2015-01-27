@@ -98,8 +98,30 @@ class Train:
 
 
 
+    def getExactlyTrainNumber(self, station_name):
+        """获取列车到达某个站点时的精确车次"""
+        return self.number
+
+
+    def encodeStationName(self, station_name):
+        """将站名编码为12306使用的UTF-8形式"""
+        bytes_str = station_name.encode("utf-8")
+        result = "".join(["-" + x.encode("hex") for x in bytes_str])
+        return result
+
+
+
     def getDelayTime(self, station_name):
         """获取某个站点的延迟信息"""
-        pass
+
+        # 获取精确车次
+        train_no = self.getExactlyTrainNumber(station_name)
+        # 组装URL
+        query_url = str.format(WebModel.DELAY_TIME_URL, station_name.encode("utf-8"), train_no,\
+                self.launch_date, self.encodeStationName(station_name))
+        
+        # 请求
+        result = CommonService.HttpGetRequest(WebModel.DELAY_TIME_HOST, query_url,\
+                decode="gbk")
 
 

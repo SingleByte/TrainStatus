@@ -7,6 +7,7 @@ from WebModel import WebModel
 from CommonService import CommonService
 from Station import Station
 import json
+import re
 
 
 class Train:
@@ -107,12 +108,13 @@ class Train:
         """将站名编码为12306使用的UTF-8形式"""
         bytes_str = station_name.encode("utf-8")
         result = "".join(["-" + x.encode("hex") for x in bytes_str])
-        return result
+        return result.upper()
 
 
-
-    def getDelayTime(self, station_name):
-        """获取某个站点的延迟信息"""
+    def getArriveMoment(self, station_name):
+        """获取列车到达某个站点的时刻
+        Returns: hh:mm形式的时间字符串或None
+        """
 
         # 获取精确车次
         train_no = self.getExactlyTrainNumber(station_name)
@@ -123,5 +125,17 @@ class Train:
         # 请求
         result = CommonService.HttpGetRequest(WebModel.DELAY_TIME_HOST, query_url,\
                 decode="gbk")
+
+        if not result:
+            return None
+
+        # 解析时间
+        TIME_PATTERN = re.compile("\d+\:\d+")
+        matchs = re.search(TIME_PATTERN, result)
+        if not matchs:
+            return None
+
+        arrive_time = matchs.group(0)
+        return arrive_time 
 
 

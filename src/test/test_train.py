@@ -8,12 +8,14 @@ sys.path.append("../")
 from Train import Train
 from Station import Station
 
-train = Train("K917", "2015-1-26")
+train = Train("K920", "2015-01-27")
 print train.getAllNumbers()
 
 for item in train.getStationList():
     print item.name, item.date, item.arrive_time, item.leave_time, item.distance
 
-train.getDelayTime(u"许昌")
+print train.getArriveMoment(u"许昌")
+print train.getArriveMoment(u"驻马店")
+print train.getArriveMoment(u"西平")
 
 
